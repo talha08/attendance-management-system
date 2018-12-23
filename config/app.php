@@ -167,7 +167,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\JSONApiServiceProvider::class,
         App\Providers\ObserverServiceProvider::class,
-        EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class
+        //EllipseSynergie\ApiResponse\Laravel\ResponseServiceProvider::class
     ],
 
     /*
