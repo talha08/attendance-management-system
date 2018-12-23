@@ -77,10 +77,12 @@ class WorkHolidaysService extends BaseService
     {
         $holidayCount = $this->workHolidaysRepository->getQuery()
             ->whereMonth('date', Carbon::now()->month)
-            ->where('holiday_for', auth()->user()->id)
-            ->orWhere('holiday_for', 'ALL')
-            ->orWhere('holiday_for', null)
-            ->count();
+            ->where(function($query) {
+                $query->where('holiday_for', auth()->user()->id);
+                $query->orWhere('holiday_for', 'ALL');
+                $query->orWhere('holiday_for', null);
+            })->count();
+
         return $holidayCount;
     }
 }
